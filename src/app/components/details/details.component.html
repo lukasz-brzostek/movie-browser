@@ -1,0 +1,26 @@
+<div class="container-fluid" id="details-container">
+<div class="container">
+<div *ngFor="let movie of movieDetails">
+    <div class="row">
+    <div class="col-12 order-2 order-sm-1 col-sm-4">
+    <img src={{movie.image.original}} class="img-fluid movie-image">
+    </div>
+    <div class="col-12 order-1 order-sm-2 col-sm-8">
+    <h2>{{movie.name}}</h2>
+    <table>
+     <tr>Type: {{movie.type}}</tr>
+     <tr>Genre: {{movie.genres}}</tr>
+     <tr>Language: {{movie.language}}</tr>
+     <tr>Runtime: {{movie.runtime}}</tr>
+     <tr>Premiered: {{movie.premiered}}</tr>
+     <tr>Status: {{movie.status}}</tr>
+     <tr>Channel: {{movie.webChannel.name}}</tr>
+    </table>
+    <div class="movie-summary" *ngIf="movie.summary" [innerHTML]="movie.summary"></div>
+    <div class="movie-summary" *ngIf="!movie.summary">No description</div>
+    <a href="{{movie.url}}" class="movie-button" target="_blank">Details on TVMaze</a>
+    </div>
+    </div>
+</div>
+</div>
+</div>
