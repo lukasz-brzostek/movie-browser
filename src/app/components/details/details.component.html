@@ -3,7 +3,12 @@
 <div *ngFor="let movie of movieDetails">
     <div class="row">
     <div class="col-12 order-2 order-sm-1 col-sm-4">
-    <img src={{movie.image.original}} class="img-fluid movie-image">
+    <div *ngIf="movie.image?.original">
+     <img src={{movie.image.original}} class="img-fluid movie-image">
+    </div>
+    <div *ngIf="!movie.image?.original">
+     <img src="../../assets/dummy.png" class="img-fluid movie-image">
+    </div>
     </div>
     <div class="col-12 order-1 order-sm-2 col-sm-8">
     <h2>{{movie.name}}</h2>

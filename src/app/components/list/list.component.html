@@ -27,7 +27,12 @@
       <h4 class="list-header">{{movie._embedded.show.name}}</h4>
       <h6>Sezon: {{movie.season}}</h6>
       <div>Broadcast time: {{movie.airstamp | date:'HH:mm'}}</div>
-      <a routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active"><img src={{movie._embedded.show.image.original}} class="img-fluid movie-thumb"></a>
+      <div *ngIf="movie._embedded.show.image?.original">
+        <a routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active"><img src={{movie._embedded.show.image.original}} class="img-fluid movie-thumb"></a>
+      </div>
+      <div *ngIf="!movie._embedded.show.image?.original">
+        <a routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active"><img src="../../assets/dummy.png" class="img-fluid movie-thumb"></a>
+      </div>
       <div class="movie-summary">
       <div *ngIf="movie.summary" [innerHTML]="movie.summary"></div>
       <div *ngIf="!movie.summary">No description</div>
