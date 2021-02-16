@@ -3,10 +3,9 @@ import { Component, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
-  
   loader: boolean = true;
 
   ngAfterViewInit() {
@@ -18,5 +17,4 @@ export class AppComponent implements AfterViewInit {
   public onActivate($event) {
     window.scrollTo(0, 0);
   }
-  
 }

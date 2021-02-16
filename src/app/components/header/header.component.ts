@@ -3,11 +3,10 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-
-  constructor() { }
+  constructor() {}
 
   loader: boolean = true;
 
@@ -18,5 +17,4 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       this.loader = false;
     }, 100);
   }
-
 }

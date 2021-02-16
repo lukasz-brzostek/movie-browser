@@ -1,41 +1,41 @@
-@import '../../../mixins.scss';
+@import "../../../mixins.scss";
 
 #list-container {
- background: #fff;
- height: 15px;
- box-shadow:  rgba(0, 0, 0, 0.02) 1px 19px 31px 0px;
+  background: #fff;
+  height: 15px;
+  box-shadow: rgba(0, 0, 0, 0.02) 1px 19px 31px 0px;
 }
 #details-container {
- background: #fff;
- padding-top: 90px;
- padding-bottom: 90px;
- min-height: 600px;
- & .movie-button {
- width:220px;
- float: right;
- @include mobile {
- width:100%;
- margin-bottom:20px;
- }
- }
- @include mobile {
- padding:10px !important;
- padding-top:40px !important;
- padding-bottom:60px !important;
- }
+  background: #fff;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  min-height: 600px;
+  & .movie-button {
+    width: 220px;
+    float: right;
+    @include mobile {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  @include mobile {
+    padding: 10px !important;
+    padding-top: 40px !important;
+    padding-bottom: 60px !important;
+  }
 }
 .movie-image {
- width:100%;
- height: auto;
+  width: 100%;
+  height: auto;
 }
 table {
- width: 100%;
+  width: 100%;
 }
- tr {
- border-bottom: 1px solid #f1f1f1;
- line-height:45px;
+tr {
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 45px;
 }
 .movie-summary {
- margin-top: 20px;
- line-height: 28px;
+  margin-top: 20px;
+  line-height: 28px;
 }

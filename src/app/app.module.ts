@@ -10,24 +10,23 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ListComponent } from './components/list/list.component';
 import { DetailsComponent } from './components/details/details.component';
- 
+
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     DetailsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgSelectModule
+    NgSelectModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

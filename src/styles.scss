@@ -1,110 +1,109 @@
-@import 'mixins.scss';
+@import "mixins.scss";
 
 body {
- font-family: Ubuntu, sans-serif;
- background: #fafafa url(assets/background.jpg) no-repeat top center;
- background-size: 100% 265px;
- @include mobile {
-  background-size: auto;     
- }
- @include tablet {
-  background-size: auto;     
- }
+  font-family: Ubuntu, sans-serif;
+  background: #fafafa url(assets/background.jpg) no-repeat top center;
+  background-size: 100% 265px;
+  @include mobile {
+    background-size: auto;
+  }
+  @include tablet {
+    background-size: auto;
+  }
 }
 a {
- &:hover {
- text-decoration: none;
- }
+  &:hover {
+    text-decoration: none;
+  }
 }
 .container-fluid {
- padding-left: 0 !important;
- padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 #loader {
- margin-top:-15px;
- height:101%;
- width: 100%;
- position: fixed;
- background:#fff;
- z-index: 9999;
- display: flex;
- justify-content: center;
- align-items: center;
- .spinner {
- width: 2rem;
- height: 2rem;
- margin: 2rem;
- border-radius: 50%;
- border: 0.3rem solid rgba(crimson, 0.3);
- border-top-color: crimson;
- animation: 1.5s spin infinite linear;
- }
- @keyframes spin {
- to {
-  transform: rotate(360deg);
- }
- }
- 
- }
+  margin-top: -15px;
+  height: 101%;
+  width: 100%;
+  position: fixed;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .spinner {
+    width: 2rem;
+    height: 2rem;
+    margin: 2rem;
+    border-radius: 50%;
+    border: 0.3rem solid rgba(crimson, 0.3);
+    border-top-color: crimson;
+    animation: 1.5s spin infinite linear;
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
 .navbar {
- height: 200px;
- & a {
-  color: black;
- }
+  height: 200px;
+  & a {
+    color: black;
+  }
 }
 #logo {
- display: block;
- text-indent: -9999px;
- background: url(assets/logo.svg) no-repeat;
- background-size: 330px 77px;
- height: 77px;
- width: 330px;
- @include mobile {
- height: 58px;
- width: 250px;
- background-size: 250px 58px;
- }
- @media screen and (min-width: 380px) and (max-width: 768px) {
- height: 77px;
- width: 300px;
- background-size: 300px 77px;
-}
+  display: block;
+  text-indent: -9999px;
+  background: url(assets/logo.svg) no-repeat;
+  background-size: 330px 77px;
+  height: 77px;
+  width: 330px;
+  @include mobile {
+    height: 58px;
+    width: 250px;
+    background-size: 250px 58px;
+  }
+  @media screen and (min-width: 380px) and (max-width: 768px) {
+    height: 77px;
+    width: 300px;
+    background-size: 300px 77px;
+  }
 }
 .movie-button {
- display: inline-block;
- padding:15px;
- padding-left:25px;
- padding-right: 25px;
- background: crimson;
- color:#fff;
- width: 100%;
- text-align: center;
- vertical-align: bottom;
- transition: 0.3s;
- &:hover {
- background:#be0d30;
- color:#fff;
- transition: 0.3s;
- }
+  display: inline-block;
+  padding: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background: crimson;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  vertical-align: bottom;
+  transition: 0.3s;
+  &:hover {
+    background: #be0d30;
+    color: #fff;
+    transition: 0.3s;
+  }
 }
 footer {
- height: 150px;
- margin-top:80px;
+  height: 150px;
+  margin-top: 80px;
 }
 .footer-container {
- height: inherit;
- display: flex;
- align-items: center;
- justify-content: center;
- flex-direction: column;
- background: #fff;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #fff;
 }
 .logo-footer {
- display: block;
- text-indent: -9999px;
- background: url(assets/logo.svg) no-repeat;
- background-size: 150px 35px;
- height: 35px;
- width: 150px;
- margin: auto;
+  display: block;
+  text-indent: -9999px;
+  background: url(assets/logo.svg) no-repeat;
+  background-size: 150px 35px;
+  height: 35px;
+  width: 150px;
+  margin: auto;
 }

@@ -5,12 +5,12 @@ import { ListComponent } from './components/list/list.component';
 import { DetailsComponent } from './components/details/details.component';
 
 const routes: Routes = [
-  {path:'', pathMatch: 'full', component: ListComponent},  
-  {path:'details/:id', component: DetailsComponent},  
+  { path: '', pathMatch: 'full', component: ListComponent },
+  { path: 'details/:id', component: DetailsComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
