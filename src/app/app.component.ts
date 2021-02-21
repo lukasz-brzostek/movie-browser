@@ -9,12 +9,10 @@ export class AppComponent implements AfterViewInit {
   loader: boolean = true;
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.loader = false;
-    }, 100);
+    this.loader = false;
   }
 
-  public onActivate($event) {
+  public onActivate() {
     window.scrollTo(0, 0);
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "testy",
+  "name": "Movie Browser",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
