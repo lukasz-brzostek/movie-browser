@@ -44,15 +44,8 @@ a {
   }
 }
 .button {
-  display: inline-block;
-  padding: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
   background: crimson;
   color: #fff;
-  width: 100%;
-  text-align: center;
-  vertical-align: bottom;
   transition: 0.3s;
   &:hover {
     background: #be0d30;

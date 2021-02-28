@@ -16,14 +16,6 @@
     width: 100%;
     height: auto;
   }
-  &_btn {
-    width: 220px;
-    float: right;
-    @include mobile {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
   &__table {
     width: 100%;
   }
@@ -34,5 +26,18 @@
   &__summary {
     margin-top: 20px;
     line-height: 28px;
+  }
+  &--btn {
+    display: block;
+    padding: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    text-align: center;
+    width: 220px;
+    float: right;
+    @include mobile {
+      width: 100%;
+      margin-bottom: 20px;
+    }
   }
 }
