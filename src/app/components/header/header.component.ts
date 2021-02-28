@@ -5,16 +5,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent implements OnInit {
   constructor() {}
-
-  loader: boolean = true;
-
   ngOnInit(): void {}
-
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.loader = false;
-    }, 100);
-  }
 }

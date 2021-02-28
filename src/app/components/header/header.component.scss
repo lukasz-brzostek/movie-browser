@@ -1,0 +1,31 @@
+@import "../../../mixins.scss";
+
+.header {
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    padding: 0.5rem 1rem;
+  }
+  &__logo {
+    text-indent: -9999px;
+    background: url(../../../assets/logo.svg) no-repeat;
+    background-size: 330px 77px;
+    height: 77px;
+    width: 330px;
+    @include mobile {
+      height: 58px;
+      width: 250px;
+      background-size: 250px 58px;
+    }
+    @media screen and (min-width: 380px) and (max-width: 768px) {
+      height: 77px;
+      width: 300px;
+      background-size: 300px 77px;
+    }
+  }
+  & a {
+    color: black;
+  }
+}

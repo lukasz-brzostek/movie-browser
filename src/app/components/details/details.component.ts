@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../api.service';
+import { Observable } from 'rxjs';
 import { Details } from '../../interfaces/details.interface';
 
 interface MovieDetails {
   id: number;
-  movieDetails: Details[];
+  movieDetails$: Observable<Details[]>;
 }
 
 @Component({
@@ -15,14 +16,12 @@ interface MovieDetails {
 })
 export class DetailsComponent implements OnInit, MovieDetails {
   id: number;
-  movieDetails: Details[];
+  movieDetails$: Observable<Details[]>;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.apiService.getMovieDetails(this.id).subscribe((data: Details) => {
-      this.movieDetails = [data];
-    });
+    this.movieDetails$ = this.apiService.getMovieDetails(this.id);
   }
 }

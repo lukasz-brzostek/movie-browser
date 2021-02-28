@@ -1,15 +1,17 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterContentInit {
   loader: boolean = true;
 
-  ngAfterViewInit() {
-    this.loader = false;
+  ngAfterContentInit() {
+    setTimeout(() => {
+      this.loader = false;
+    }, 100);
   }
 
   public onActivate() {

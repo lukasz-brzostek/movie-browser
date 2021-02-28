@@ -1,14 +1,34 @@
 @import "../../../mixins.scss";
 
-#list-container {
+.genres-list {
   background: #fff;
-  height: 85px;
   box-shadow: rgba(0, 0, 0, 0.02) 1px 19px 31px 0px;
+  &__select {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
 }
-#list-date {
-  margin-top: 50px;
-  border-bottom: 1px solid #e7e7e7;
-  padding-bottom: 20px;
+.movies-date {
+  &__inner {
+    padding-top: 50px;
+    border-bottom: 1px solid #e7e7e7;
+    padding-bottom: 20px;
+  }
+  &__picker {
+    float: right;
+    border: 1px solid #dddddd;
+    background: #fafafa;
+    padding: 10px;
+    margin-top: -5px;
+    width: 170px;
+    @include mobile {
+      width: 160px;
+    }
+  }
+}
+.movies-list {
+  font-size: 13px;
+  line-height: 21px;
   @include mobile {
     margin-top: 30px;
     & h3 {
@@ -16,77 +36,59 @@
       margin-top: 4px;
     }
   }
-}
-.list-select {
-  margin-top: 24px;
-}
-#movie-list {
-  font-size: 13px;
-  line-height: 21px;
-}
-.movie-thumb {
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  box-shadow: rgba(0, 0, 0, 0.06) 1px 19px 11px 0px;
-  background: #fefefe;
-  @include desktop {
-    min-height: 378px;
-    max-height: 378px;
+  &__head {
+    margin-top: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @include mobile {
+      margin-top: 20px;
+    }
   }
-  @include tablet {
-    min-height: 320px;
-    max-height: 320px;
-  }
-  @include mobile-xs {
-    min-height: 340px;
-    max-height: 340px;
-  }
-}
-.list-header {
-  margin-top: 40px;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  @include mobile {
+  &__img {
+    width: 100%;
     margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.06) 1px 19px 11px 0px;
+    background: #fefefe;
+    @include desktop {
+      min-height: 378px;
+      max-height: 378px;
+    }
+    @include tablet {
+      min-height: 320px;
+      max-height: 320px;
+    }
+    @include mobile-xs {
+      min-height: 340px;
+      max-height: 340px;
+    }
   }
-}
-.movie-summary {
-  width: 100%;
-  margin-bottom: 20px;
-  height: 68px;
-  @include desktop {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  @include tablet {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  @include mobile-xs {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  @include mobile {
-    height: auto;
-  }
-}
-.date-picker {
-  float: right;
-  border: 1px solid #dddddd;
-  background: #fafafa;
-  padding: 10px;
-  margin-top: -5px;
-  width: 150px;
-  @include mobile {
-    width: 120px;
+  &__summary {
+    width: 100%;
+    height: 68px;
+    margin-bottom: 20px;
+    @include desktop {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @include tablet {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @include mobile-xs {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    @include mobile {
+      height: auto;
+    }
   }
 }

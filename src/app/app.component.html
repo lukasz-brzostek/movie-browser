@@ -1,5 +1,10 @@
+<div *ngIf="loader == true" class="loader">
+  <div class="loader__inner">
+    <div class="loader__spinner"></div>
+  </div>
+</div>
 <app-header></app-header>
 <section>
-    <router-outlet (activate)="onActivate()"></router-outlet>
+  <router-outlet (activate)="onActivate()"></router-outlet>
 </section>
 <app-footer></app-footer>

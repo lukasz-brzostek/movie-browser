@@ -1,43 +1,53 @@
-<div class="container-fluid sticky-top" id="list-container">
+<div class="genres-list sticky-top">
   <div class="container">
     <div class="row">
      <div class="col-12">
-      <div class="form-group list-select">
-       <ng-select [(ngModel)]="selectedGenre" (change)="onFilterChange($event)" bindLabel="name" placeholder="Select genre" appendTo="body" multiple="true" [searchable]="false" [clearable]="true" [closeOnSelect]="false">
-         <ng-option [value]="genre" *ngFor="let genre of genresList">
-         {{genre}}
-         </ng-option>
-      </ng-select>
-     </div>
+       <ng-select class="genres-list__select" [(ngModel)]="selectedGenre" (change)="onFilterChange($event)" bindLabel="name" placeholder="Select genre" appendTo="body" multiple="true" [searchable]="false" [clearable]="true" [closeOnSelect]="false">
+         <ng-option class="genres-list__option" [value]="genre" *ngFor="let genre of genresList">{{genre}}</ng-option>
+       </ng-select>
     </div>
    </div>
   </div>
 </div>
-  <div class="container" id="movie-list">
-    <div id="list-date">
+<div class="movies-date">
+  <div class="container">
+    <div class="movies-date__inner">
     <div class="row">
     <div class="col-6">
-    <h3>{{selectedDate}}:</h3>
+      <h3 class="movies-date__header">{{selectedDate}}:</h3>
+    </div>
+    <div class="col-6">
+      <input type="date" (change)="onDateChange($event.target.value)" value="{{selectedDate}}" class="movies-date__picker">
+    </div>
+   </div>
+   </div>
   </div>
-    <div class="col-6"><input type="date" (change)="onDateChange($event.target.value)" class="date-picker" value="{{selectedDate}}"></div>
-  </div>
-  </div>
+</div>
+<div class="movies-list">
+  <div class="container">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredData">
-      <h4 class="list-header">{{movie._embedded.show.name}}</h4>
-      <h6>Sezon: {{movie.season}}</h6>
-      <div>Broadcast time: {{movie.airstamp | date:'HH:mm'}}</div>
-      <div *ngIf="movie._embedded.show.image?.original">
-        <a routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active"><img src={{movie._embedded.show.image.original}} class="img-fluid movie-thumb"></a>
+    <div class="movies-list__item col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredData">
+      <h4 class="movies-list__head">{{movie._embedded.show.name}}</h4>
+      <h6 class="movies-list__season">Sezon: {{movie.season}}</h6>
+      <div class="movies-list__time">Broadcast time: {{movie.airstamp | date:'HH:mm'}}</div>
+      <div class="movies-list__thumb" *ngIf="movie._embedded.show.image?.original">
+        <a class="movies-list__link" routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active">
+          <img class="movies-list__img img-fluid" src={{movie._embedded.show.image.original}}>
+        </a>
       </div>
-      <div *ngIf="!movie._embedded.show.image?.original">
-        <a routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active"><img src="../../assets/dummy.png" class="img-fluid movie-thumb"></a>
+      <div class="movies-list__thumb" *ngIf="!movie._embedded.show.image?.original">
+        <a class="movies-list__link" routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active">
+          <img class="movies-list__img img-fluid" src="../../assets/dummy.png" >
+        </a>
       </div>
-      <div class="movie-summary">
+      <div class="movies-list__summary">
       <div *ngIf="movie.summary" [innerHTML]="movie.summary"></div>
       <div *ngIf="!movie.summary">No description</div>
       </div>
-      <div><a routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active" class="movie-button">more...</a></div>
+      <div>
+        <a class="button movies-list_btn" routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active">more...</a>
+      </div>
     </div>
   </div>
+</div>
 </div>
