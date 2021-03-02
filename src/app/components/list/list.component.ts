@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentChecked } from '@angular/core';
 import { ApiService } from '../../api.service';
 import { Movies } from '../../interfaces/movies.interface';
 
 interface List {
+  loader: boolean;
+  pageImages: HTMLCollectionOf<HTMLImageElement>;
+  pageImagesArr: HTMLImageElement[];
+  imagesCount: number;
+  imagesLoaded: number;
   moviesData: Movies[];
   genresData: string;
   genresList: string[];
@@ -20,13 +25,18 @@ interface List {
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit, List {
+export class ListComponent implements OnInit, AfterContentChecked, List {
   moviesData: Movies[];
   genresData: string;
   genresList: string[];
   selectedGenre: string;
   filteredData: Movies[];
   selectedDate: string = '2021-02-04';
+  loader: boolean = true;
+  pageImages: HTMLCollectionOf<HTMLImageElement>;
+  pageImagesArr: HTMLImageElement[];
+  imagesCount: number;
+  imagesLoaded: number = 0;
 
   constructor(private apiService: ApiService) {}
 
@@ -34,6 +44,10 @@ export class ListComponent implements OnInit, List {
     this.apiService.getMovies(this.selectedDate).subscribe((data: Movies[]) => {
       this.setData(data);
     });
+  }
+
+  ngAfterContentChecked() {
+    this.imagesCheck();
   }
 
   public setData(data: Movies[]) {
@@ -69,10 +83,27 @@ export class ListComponent implements OnInit, List {
   }
 
   public onDateChange(value: string) {
+    this.loader = true;
+    this.imagesLoaded = 0;
+    this.imagesCheck();
     this.selectedGenre = '';
     this.selectedDate = value;
     this.apiService.getMovies(this.selectedDate).subscribe((data: Movies[]) => {
       this.setData(<Movies[]>data);
+      if (data.length <= 0) this.loader = false;
     });
+  }
+
+  public imagesCheck() {
+    this.pageImages = document.images;
+    this.pageImagesArr = Array.from(document.images);
+    this.imagesCount = this.pageImages.length;
+  }
+
+  public onImgLoad() {
+    ++this.imagesLoaded;
+    this.imagesCount = this.imagesCount - this.imagesLoaded;
+    // console.log(this.imagesCount);
+    if (this.imagesCount <= 0) this.loader = false;
   }
 }

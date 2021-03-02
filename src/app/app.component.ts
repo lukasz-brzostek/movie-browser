@@ -6,13 +6,7 @@ import { Component, AfterContentInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterContentInit {
-  loader: boolean = true;
-
-  ngAfterContentInit() {
-    setTimeout(() => {
-      this.loader = false;
-    }, 100);
-  }
+  ngAfterContentInit() {}
 
   public onActivate() {
     window.scrollTo(0, 0);

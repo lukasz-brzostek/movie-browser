@@ -39,7 +39,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     @include mobile {
-      margin-top: 20px;
+      margin-top: 0px;
     }
   }
   &__img {
@@ -95,5 +95,8 @@
     width: 100%;
     text-align: center;
     vertical-align: bottom;
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 }

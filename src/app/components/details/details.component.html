@@ -1,13 +1,18 @@
+<div *ngIf="loader == true" class="loader">
+    <div class="loader__inner">
+      <div class="loader__spinner"></div>
+    </div>
+  </div>
 <div class="movie-details">
 <div class="container">
 <div class="movie-details__item" *ngFor="let movie of movieDetails$ | async">
     <div class="row">
     <div class="col-12 col-sm-4 order-2 order-sm-1">
     <div class="movie-details__thumb" *ngIf="movie.image?.original">
-     <img class="movie-details__img img-fluid" src={{movie.image.original}}>
+     <img class="movie-details__img img-fluid" src={{movie.image.original}} (load)="onImgLoad()">
     </div>
     <div class="movie-details__thumb" *ngIf="!movie.image?.original">
-     <img class="movie-details__img img-fluid" src="../../assets/dummy.png">
+     <img class="movie-details__img img-fluid" src="../../assets/dummy.png" (load)="onImgLoad()">
     </div>
     </div>
     <div class="col-12 col-sm-8 order-1 order-sm-2">

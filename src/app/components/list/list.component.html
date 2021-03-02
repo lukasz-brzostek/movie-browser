@@ -1,3 +1,8 @@
+<div *ngIf="loader == true" class="loader">
+  <div class="loader__inner">
+    <div class="loader__spinner"></div>
+  </div>
+</div>
 <div class="genres-list sticky-top">
   <div class="container">
     <div class="row">
@@ -28,16 +33,16 @@
   <div class="row">
     <div class="movies-list__item col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of filteredData">
       <h4 class="movies-list__head">{{movie._embedded.show.name}}</h4>
-      <h6 class="movies-list__season">Sezon: {{movie.season}}</h6>
+      <h6 class="movies-list__season">Season: {{movie.season}}</h6>
       <div class="movies-list__time">Broadcast time: {{movie.airstamp | date:'HH:mm'}}</div>
       <div class="movies-list__thumb" *ngIf="movie._embedded.show.image?.original">
         <a class="movies-list__link" routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active">
-          <img class="movies-list__img img-fluid" src={{movie._embedded.show.image.original}}>
+          <img class="movies-list__img img-fluid" src={{movie._embedded.show.image.original}} (load)="onImgLoad()">
         </a>
       </div>
       <div class="movies-list__thumb" *ngIf="!movie._embedded.show.image?.original">
         <a class="movies-list__link" routerLink="/details/{{movie._embedded.show.id}}" routerLinkActive="active">
-          <img class="movies-list__img img-fluid" src="../../assets/dummy.png" >
+          <img class="movies-list__img img-fluid" src="../../assets/dummy.png" (load)="onImgLoad()">
         </a>
       </div>
       <div class="movies-list__summary">

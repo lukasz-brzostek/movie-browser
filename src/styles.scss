@@ -18,24 +18,26 @@ a {
 }
 .loader {
   &__inner {
-    margin-top: -15px;
-    height: 101%;
+    height: 100%;
     width: 100%;
     position: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background: #fff;
+    align-items:center;
+    background: #fafafa;
     z-index: 9999;
   }
   &__spinner {
     width: 2rem;
     height: 2rem;
-    margin: 2rem;
+    margin-top: -12%;
     border-radius: 50%;
     border: 0.3rem solid rgba(crimson, 0.3);
     border-top-color: crimson;
     animation: 1.5s spin infinite linear;
+    @include mobile {
+      margin-top: -40%;
+    }
   }
   @keyframes spin {
     to {
